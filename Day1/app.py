@@ -28,6 +28,8 @@ def students():
 
 @app.route("/students/new", methods=["POST"])
 def new_student():
+    import time
+    time.sleep(3)
     if request.form.get("name") is None or request.form.get("id") is None:
         return jsonify({"error": "invalid data"}), 400
     stds.append({ "name":  request.form["name"], "id": int(request.form["id"])})

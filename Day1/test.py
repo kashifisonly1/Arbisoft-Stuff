@@ -12,10 +12,10 @@ def get_data():
 
 
 def post_data():
-    res = requests.post("http://localhost:5000/students/new", data={"name": "name"})
+    res = requests.post("http://localhost:5000/students/new", data={"name": "name", "id":1})
     if res.status_code>=200 and res.status_code<250:
         print(res.json())
-    if res.status_code==400:
+    elif res.status_code==400:
         print("error: ", res.json()["error"])
     else:
         print("ops something went wrong")
